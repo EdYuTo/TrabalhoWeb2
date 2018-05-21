@@ -1,0 +1,28 @@
+ .clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+    overflow: auto;
+    width: 100%;
+  }
+
+  #bg{
+  	background-color: whitesmoke;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 100px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  #buttonForm {
+  	float: right;
+  	size: 10px;
+  }
+
+input[type="text"] {
+  height: 20px;
+  width: 100px;
+}

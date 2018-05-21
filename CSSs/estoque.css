@@ -1,0 +1,30 @@
+  /*Modelo clearfix para comportar uma imagem a esqerda seguida por texto*/
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: 30px;
+  }
+
+/* ---------------------------------------------------------------------- */
+
+.fixLeft{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-right: 300px;
+}
+
+.fixPrice{
+  margin-left: 80%;
+}
+
+.fixButton{
+  float: right;
+  margin-top: 300px;
+}
+
+h2{ 
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgb(80,80,80);
+    text-align: "center";
+}
