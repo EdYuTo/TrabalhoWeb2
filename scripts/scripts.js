@@ -30,9 +30,5 @@ $(document).ready(function(){
 
 	$("#loginScreen").click(function(){
 		$(".main").load("Menu/loginScreen.html")
-	});
-
-		$("#buttonForm").click(function(){
-			alert("FUI APERTADO");
-		});			
+	});		
 });
