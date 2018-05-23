@@ -1,34 +1,34 @@
 $(document).ready(function(){
-	$(".main").load("Menu/initialScreen.html"); 
+	$(".main").load("initialScreen.html"); 
 
 	/*Funções de direcionamento do menu, por enquanto, só há a mudança da tag <main> para a respectiva
 	nova tela.
 	Exemplo: Se foi clicado em "Home", todo o conteúdo entre a tag main será substituído.*/
 	$("#initialScreen").click(function(){
-		$(".main").load("Menu/initialScreen.html")
+		$(".main").load("initialScreen.html");
 	});	
 
 	$("#productsScreen").click(function(){
-		$(".main").load("Menu/productScreen.html")
+		$(".main").load("productScreen.html");
 	});
 
 	$("#contactScreen").click(function(){
-		$(".main").load("Menu/contactScreen.html")
+		$(".main").load("contactScreen.html");
 	});
 
 	$("#aboutScreen").click(function(){
-		$(".body").load("Menu/aboutScreen.html")
+		$(".body").load("aboutScreen.html");
 	});
 
 	$("#unityScreen").click(function(){
-		$(".main").load("Menu/unityScreen.html")
+		$(".main").load("unityScreen.html");
 	});
 
 	$("#structureScreen").click(function(){
-		$(".main").load("Menu/structureScreen.html")
+		$(".main").load("structureScreen.html");
 	});
 
 	$("#loginScreen").click(function(){
-		$(".main").load("Menu/loginScreen.html")
+		$(".main").load("loginScreen.html");
 	});		
 });
