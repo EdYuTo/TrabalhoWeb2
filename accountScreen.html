@@ -4,7 +4,7 @@
 <main class="content">
   <div class="clearfix">
     <div id = "idLeftNav">
-      <img id = "borderFoto" src="Imagens/perfilFoto.jpg" width="200" height="200" alt="foto de perfil">    
+      <img id = "borderFoto" width="200" height="200" alt="foto de perfil">
       <p><a href="">Alterar foto</a></p>
         <ul>
         <li id = "addAnimal">Adicionar Animal</li>
@@ -14,18 +14,18 @@
     
     <div id = "borderContent">
      <h2 >Meus Dados</h2>
-       <p >Nome: Bruno Abe</p>
-       <p>email:bola@bol.com.br</p>
-       <p >Telefone: 4002-8922</p>
+       <p>Nome: <input type="text" name="name" id = "nomeUser"></p>
+       <p>Email: <input type="text" name="email" id = "emailUser"></p>
+       <p >Telefone: <input type="number" name="tel" id = "telUser"></p>
 
      <h2>Endereço</h2>
-       <p>Rua: Que sobe desce e nunca aparece</p>
-       <p>Número: 314</p>
-       <p>Bairro: Los Computeiros</p>
+       <p>Rua: <input type="text" name="street" id = "streetUser"></p>
+       <p>Número: <input type="number" name="num" id = "numCasaUser"></p>
+       <p>Bairro: <input type="text" name="bairro" id = "bairroUser"></p>
 
      <h2>Cartão</h2>
-       <p>Número: <input type="number" name="cartao" value="123571113"></p>
-       <p>Bandeira:<input type="text" name="tipo" value="Visa"></p>
+       <p>Número: <input type="number" name="cartao"></p>
+       <p>Bandeira:<input type="text" name="tipo"></p>
     </div>
 
     <div id = "buttonContent">
