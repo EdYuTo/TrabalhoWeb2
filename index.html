@@ -3,27 +3,45 @@
 
 <head>
   <title>Home</title>
+  
+  <!-- Meta informações-->
   <meta http-equiv="content-type" content="text/html;"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
+
+  <!-- CSS's externos-->
   <link rel = "stylesheet" type ="text/css" href ="CSSs/Padrao.css">
   <link rel = "stylesheet" type ="text/css" href ="CSSs/home.css">
-  <script src = "https://code.jquery.com/jquery-2.1.1.js"></script>
-  <script src = "scripts/scripts.js"> var loginAux; </script>
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/estrutura.css">
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/about.css">
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/contact.css">
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/login.css">
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/cadastro.css">
+  <link rel = "stylesheet" type ="text/css" href ="CSSs/conta.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <!-- JS's externos-->
+  <script src = "https://code.jquery.com/jquery-3.3.1.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src = "scripts/scripts.js" defer> var loginAux; </script>
+  <!-- <script src = "scripts/scriptLogin.js" defer></script> -->
+
 </head>
 
 <body>
-<header><img class ="header" src="Imagens/PlanetaAnimalLogo.png" alt="PlanetaAnimal" width="1134" height="189" usemap="#headerMap">
-  <ul class = "unorderedListNav">
-    <li class = "listItemNav" id = "initialScreen">Home</li>
-    <li class = "listItemNav" id = "productsScreen">Produto</li>
-    <li class = "listItemNav" id = "contactScreen">Contato</li>
-    <li class = "listItemNav" id = "aboutScreen">Sobre</li>
-    <li class = "listItemNav" id = "unityScreen">Unidade</li>
-    <li class = "listItemNav" id = "structureScreen">Estrutura</li>
-    <li class = "listItemNav" id = "loginScreen" style="float: right;">Entrar</li>      
-  </ul>
+<header><img class ="header" src="Imagens/PlanetaAnimalLogo.png" alt="PlanetaAnimal" width="1134px" height="189px" usemap="#headerMap">
+  <nav class = "unorderedListNav">
+    <li class = "listItemNav" id = "initialScreen"><button type="button">Home</button></li>
+    <li class = "listItemNav" id = "productsScreen"><button type="button">Produto</button></li>
+    <li class = "listItemNav" id = "contactScreen"><button type="button">Contato</button></li>
+    <li class = "listItemNav" id = "aboutScreen"><button type="button">Sobre</button></li>
+    <li class = "listItemNav" id = "unityScreen"><button type="button">Unidade</button></li>
+    <li class = "listItemNav" id = "structureScreen"><button type="button">Estrutura</button></li>
+    <li class = "listItemNav" id = "loginScreen" style="float: right;"><button id="enter" type="button">Entrar</button></li>      
+  </nav>
 </header>
-   
+   <!-- resolver isso  .html-->
 <map name="headerMap" >
   <area shape="rect" coords="0,0,100,189" href="PaginaInicial.html" alt="Imagem clicavel no logo"> 
 </map>
@@ -32,7 +50,7 @@
 </main>
 
 <footer class="footer">
-  <p>Criado por: Paulo, Bruno e Marcelo</p>
+  <!-- <p>Criado por: Paulo, Bruno e Marcelo</p> -->
   <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
 </footer>
 

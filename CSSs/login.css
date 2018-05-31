@@ -1,28 +1,32 @@
- .clearfix::after{
-    content: "";
-    clear: both;
-    display: table;
-    overflow: auto;
-    width: 100%;
-  }
+.not_a_link{
+  color:rgb(152, 197, 73);
+  text-decoration: underline; 
+  cursor: pointer;
+}
 
-  #bg{
-  	background-color: whitesmoke;
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
-    margin-top: 100px;
-    border-radius: 5px;
-    text-align: center;
-  }
+#bg{
+	background-color: whitesmoke;
+  margin: auto;
+  width: 75%;
+  border: 3px solid green;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  text-align: center;
+}
 
-  #buttonForm {
-  	float: right;
-  	size: 10px;
-  }
+#btEntrar{
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  display: inline-block;
+  background-color: rgb(56, 137, 76);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+}
 
-input[type="text"] {
-  height: 20px;
-  width: 100px;
+#btEntrar:hover{
+    background-color: rgb(152, 197, 73);
 }

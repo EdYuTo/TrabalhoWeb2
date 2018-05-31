@@ -17,15 +17,21 @@
     border-right: none;
 }
 
-.listItemNav a{
+button{
+    cursor: pointer;
+}
+
+.listItemNav button{
+    font-size: 16px;
+    border: none;
     display: inline-block;
+    background-color: rgb(56, 137, 76);
     color: white;
     text-align: center;
     padding: 18px 20px;
-    text-decoration: none;
 }
 
-.listItemNav a:hover{
+.listItemNav button:hover{
     background-color: rgb(152, 197, 73);
 }
 
@@ -42,6 +48,15 @@ img.header{
 }
 /* ------------------------------------------ */
 
+/*Organizar imagem e texto*/
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: 30px;
+}
+/* ---------------------- */
+
 /*Imagem do topo da pagina*/
 img.header{
     width: 100%;
@@ -51,15 +66,13 @@ img.header{
 /* ---------------------- */
 
 
-/*Footer da pagina*/
-.footer {
-    background-color: rgb(152, 197, 73);
-    padding: 10px;
-    text-align: center;
-    height: 19%;
+input{
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-/* -------------  */
-
 
 /*Padrões de escrita normal*/
 h1, p, ul{ 
@@ -74,17 +87,26 @@ p{
 }
 /* ----------------------- */
 
+/*Footer da pagina*/
+.footer {
+    background-color: rgb(152, 197, 73);
+    padding: 10px;
+    text-align: center;
+    /*height: 19%;*/
+}
+/* -------------  */
 
 /*Box da pagina (container de conteudo)*/
   .content {
     max-width: 1200px;
     background: white;
     text-align: justify;
-    padding: 20px;
-     min-height: 100%;
-     margin: 0 auto -70px;
+    /*padding: 20px;*/
+    /*min-height: 100%;*/
+    margin: 0 auto 0px;
   }
-  /* --------------------------------- */
+/* --------------------------------- */
+
 html, body {
   height: 100%;
   margin: 0;

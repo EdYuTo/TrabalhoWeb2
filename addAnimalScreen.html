@@ -1,27 +1,19 @@
 <meta charset="UTF-8">
+<script src = "scripts/scriptAddAnimal.js"></script>
 
 <main class="content">
   <div class="clearfix">
    <h1 style="text-align: center;">Cadastre os dados do animal</h1>
-    <div id = "idLeftNav">
-       <h1>Dados</h1>
-       <p>Nome <input class = "ajusteContent" type="text" name="nome" value="Nina"></p>
-       <p>Idade <input class = "ajusteContent" type="text" name="idade" value="5"></p>
-       <p>Peso <input class = "ajusteContent" type="text" name="peso" value="5"></p>
-       <h1>Descendência</h1>
-       <p>Raça <input class = "ajusteContent" type="text" name="raca" value="Teckel (Dachshund)"></p>
-       <p>Pai <input class = "ajusteContent" type="text" name="racaPai" value="Dachshund"></p>
-       <p>Mãe <input class = "ajusteContent" type="text" name="racaMae" value="Dachshund"></p>
+    <div id = "idLeftNavC">
+       <h1 style="color: rgb(152, 197, 73);">Dados</h1>
+        <p>Nome <input class = "ajusteContent" type="text" name="nome" id = "nomeAnimal"></p>
+        <p>Idade <input class = "ajusteContent" type="number" name="idade" id = "idadeAnimal"></p>
+        <p>Peso <input class = "ajusteContent" type="number" name="peso" id = "pesoAnimal"></p>
+       <h1 style="color: rgb(152, 197, 73);">Descendência</h1>
+        <p>Raça <input class = "ajusteContent" type="text" name="raca" id = "racaAnimal"></p>
+        <p>Pai <input class = "ajusteContent" type="text" name="racaPai" id = "racaPai"></p>
+        <p>Mãe <input class = "ajusteContent" type="text" name="racaMae" id = "racaMae"></p>
+        <button class = "rightAjust" id = "submitAnimalButton">Submeter</button>
      </div>
-    
-    <div class="clearfix">
-      <div id = "cadastroContentOne">
-      </div>
-    </div>
-
-    <div class="clearfix">
-    <a href="Conta.html"><button class = "rightAjust">Submeter</button></a>
-    </div>
-    
   </div>
 </main>

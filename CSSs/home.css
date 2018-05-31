@@ -17,13 +17,6 @@
     width: 100%;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-    margin-bottom: 30px;
-}
-
 #logo{
   margin-top: 0px;
 }

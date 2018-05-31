@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script src = "scripts/scriptAdmin.js"></script>
+
+<main class="content">
+    <div class="clearfix" style="margin-top: 20px;">
+    <div id = "idLeftNavC">
+      <img id = "borderFoto1" src="Imagens\unknown.jpg" width="200" height="200" alt="foto de perfil">
+
+      <input type="file" name="file" id="file" class="inputfile" />
+      <br><label class="button" for="file">Alterar foto</label>
+
+        <br><button type="button" class="button" id = "addUser">Adicionar Usuário/Adm</button>
+        <br><button type="button" class="button" id = "addProduct">Adicionar Produto</button>
+        <br><button type="button" class="button" id = "addService">Adicionar Serviço</button>
+        <br><button type="button" class="button" id = "Estoque">Estoque</button>
+    </div>
+
+    <div id = "borderContent">
+        <h1 style="color: rgb(152, 197, 73);">Meus Dados</h1>
+        <p>Nome: <input type="text" name="name" class = "nomeUser"></p>
+        <p>Email: <input type="text" name="email" class = "emailUser"></p>
+        <p >Telefone: <input type="number" name="tel" class = "telUser"></p>
+
+        <h1 style="color: rgb(152, 197, 73)";>Endereço</h1>
+        <p>Rua: <input type="text" name="street" class = "streetUser"></p>
+        <p>Número: <input type="number" name="num" class = "numCasaUser"></p>
+        <p>Bairro: <input type="text" name="bairro" class = "bairroUser"></p>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button class="button" id = "btOut" >Sair</button>
+      <button class="button" id = "btSave">Salvar</button>
+    </div>
+
+  </div>
+</main>
