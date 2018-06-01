@@ -1,47 +1,116 @@
 $(document).ready(function(){
-    $("#submitAnimalButton").click(function(){
-        var name = $("#nomeAnimal").val();
-        var idade = $("#idadeAnimal").val();
-        var peso = $("#pesoAnimal").val();
-        var raca = $("#racaAnimal").val();
-        var racaPai = $("#racaPai").val();
-        var racaMae = $("#racaMae").val();
 
-        if(name.length == 0 || idade.length == 0 || peso.length == 0 || raca.length == 0 || racaPai.length == 0 || racaMae.length == 0){
-            alert("Preencha todos os campos, por favor!");
-        }else{
-            var db = indexedDB.open("db", 1);
+    var db = indexedDB.open("db", 1);
+    var arrayCod = [];
+    var arrayImagem = [];
+    var arrayNome = [];
+    var arrayPreco = [];
+    var arrayQuant = [];
+    var i = 0;
 
-            db.onsuccess = function(event){
-                db = event.target.result;
+    db.onsuccess = function(event) {
+        db = event.target.result;
 
-                var transaction = db.transaction(["animais"], "readwrite");
+        var objectStore = db.transaction("product").objectStore("product");
 
-                var store = transaction.objectStore("animais");
-                var animal = {
-                    dono: loginAux,
-                    nome: name,
-                    idade: idade,
-                    peso: peso,
-                    raca: raca,
-                    racaMae: racaMae,
-                    racaPai: racaPai,
-                    foto: null
-                };
-
-                var request = store.add(animal);
-
-                request.onsuccess = function(w){
-                    console.log("Animal cadastrado com sucesso");
-                    $(".main").load("accountScreen.html");
-                }
-
-                request.onerror = function(e){
-                    console.log(e);
-                    console.log("bah, morreu");
-                }
-                db.close();
+        objectStore.openCursor().onsuccess = event => {
+            let cursor = event.target.result;
+            if (cursor) {
+                arrayCod.push(cursor.value.codigoBarra);
+                arrayImagem.push(cursor.value.imagem);
+                arrayNome.push(cursor.value.nome);
+                arrayPreco.push(cursor.value.preco);
+                arrayQuant.push(cursor.value.quantidade);
+                cursor.continue();
             }
+            else {
+                $(".imagemProduct").val(arrayImagem[i]);
+                $(".codProduct").val(arrayCod[i]);
+                $(".nameProduct").val(arrayNome[i]);
+                $(".precoProduct").val(arrayPreco[i]);
+                $(".quantidadeProduct").val(arrayQuant[i]);
+
+                console.log(arrayNome[i]);
+            }
+         db.close();
+        }
+    }
+
+    $("#nextButtonEstoque").click(function(){
+       console.log(i+" "+arrayCod[i].length);
+
+        if(arrayCod[i] != undefined){
+           if(i < arrayCod[i].length) {
+               i++;
+
+               $(".imagemProduct").val(arrayImagem[i]);
+               $(".codProduct").val(arrayCod[i]);
+               $(".nameProduct").val(arrayNome[i]);
+               $(".precoProduct").val(arrayPreco[i]);
+               $(".quantidadeProduct").val(arrayQuant[i]);
+           }
+        }
+    });
+
+    $("#previousButtonEstoque").click(function(){
+        console.log(arrayCod[i]);
+
+        if(arrayCod[i] != undefined){
+            if(i > 0){
+                i = i - 1;
+
+                $(".imagemProduct").val(arrayImagem[i]);
+                $(".codProduct").val(arrayCod[i]);
+                $(".nameProduct").val(arrayNome[i]);
+                $(".precoProduct").val(arrayPreco[i]);
+                $(".quantidadeProduct").val(arrayQuant[i]);
+            }
+        }
+    });
+
+    $("#deleteButtonEstoque").click(function(){
+       if(i < 0){
+           alert("Não há o que deletar!");
+       }else if(arrayCod[i] != undefined){
+           var db = indexedDB.open("db", 1);
+
+           db.onsuccess = function(event){
+               db = event.target.result;
+
+               var transaction = db.transaction(["product"], "readwrite");
+               var store = transaction.objectStore("product");
+
+               var request = store.delete(arrayCod[i]);
+
+               request.onsuccess = function (e) {
+                   alert("Exluido com sucesso");
+                   $(".main").load("adminScreen.html");
+               }
+           };
+       }
+    });
+
+    $("#saveButtonEstoque").click(function(){
+        var db = indexedDB.open("db", 1);
+
+        db.onsuccess = function (event) {
+            db = event.target.result;
+
+            var store = db.transaction("product", "readwrite").objectStore("product");
+            var request = store.get(arrayCod[i]);
+
+            request.onsuccess = function (e) {
+                var result = e.target.result;
+
+                result.imagem = $(".imagemProduct").val();
+                result.codigoBarra = $(".codProduct").val();
+                result.nome =  $(".nameProduct").val();
+                result.preco = $(".precoProduct").val();
+                result.quantidade =  $(".quantidadeProduct").val();
+
+                store.put(result);
+            }
+            db.close();
         }
     });
 });

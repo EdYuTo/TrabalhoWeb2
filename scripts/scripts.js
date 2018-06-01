@@ -93,6 +93,9 @@ request.onupgradeneeded = function(event) {
 		storeService.createIndex("imagem", "imagem", {unique: false});
 		storeService.createIndex("data", "data", {unique: false});
 
+	var storeHaveService = db.createObjectStore("haveService", { autoIncrement : true });
+		storeHaveService.createIndex("animal", "animal", {unique: false});
+		storeHaveService.createIndex("service", "service", {unique: false});
 };
 
 request.onsuccess = function(event){

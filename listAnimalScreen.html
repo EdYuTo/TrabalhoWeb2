@@ -1,26 +1,30 @@
 <script src = "scripts/scriptListAnimal.js"></script>
+
 <main class="content">
-  <div style="padding-top: 50px;">
-  <div id = "idLeftNavC">
-    <img id = "borderFoto2" alt="imagem animal" width="200" height="200">
+    <div style="padding-top: 50px;">
+        <div class = "classLeftNavC">
+            <img class = "borderFoto2" alt="imagem animal" wclassth="200" height="200">
 
-    <input type="file" name="file1" id="file1" class="inputfile" />
-    <br><label class="button" for="file1">Alterar foto</label>
-  </div>
-  
-  <div id = "borderContent">
-   <h1 style="color: rgb(152, 197, 73);">Dados do animal</h1>
-   <p>Nome: <input type="text" id = "nameAnimal"></p>
-   <p>Idade: <input type="text" id = "idadeAnimal"></p>
-   <p>Peso: <input  type="text" id = "pesoAnimal"></p>
-   <p>Dono: <input  type="text" id = "nomeDono"></p>
-   <p>Raça: <input  type="text" id = "racaAnimal"></p>
+            <input type="file" name="file1" id="file1" class="inputfile" />
+            <br><label class="button" for="file1">Alterar foto</label>
+        </div>
 
-   <h1 style="color: rgb(152, 197, 73);">Serviços Reservados</h1>
-   <p id = "tosaAnimal">Tosa: </p>
-   <p id = "banhoAnimal">Banho:</p>
-   <button class="button" id = "nextAnimal">Próximo</button>
-   <button class="button">Sair</button>
-  </div>
-</div>
+        <div class = "borderContent">
+            <h1 style="color: rgb(152, 197, 73);">Dados do animal</h1>
+            <p>Nome: <input type="text" class = "nameAnimal"></p>
+            <p>Peso: <input  type="number" class = "pesoAnimal"></p>
+            <p>Dono: <input  type="text" class = "nomeDono"></p>
+            <p>Raça: <input  type="text" class = "racaAnimal"></p>
+            <p>Raça: <input  type="text" class = "racaPai"></p>
+            <p>Raça: <input  type="text" class = "racaMae"></p>
+
+            <h1 style="color: rgb(152, 197, 73);">Serviços Reservados</h1>
+            <p id = "servicosAnimal"></p>
+
+            <button id = "deleteButtonList">Deletar</button>
+            <button id = "saveButtonList">Salvar</button>
+            <button id = "previousButtonList">Voltar</button>
+            <button id = "nextButtonList">Próximo</button>
+        </div>
+    </div>
 </main>

@@ -8,7 +8,7 @@ $(document).ready(function(){
 		var email = $("#emailLogin").val();
 		var senha = $("#passwordLogin").val();
 
-		if(email.length == 0 || senha.length == 0){
+		if(email == null  || senha == null){
 			alert("Algum dos campos está vazio!");
 		}else{
 			var db = indexedDB.open("db", 1);
@@ -29,16 +29,18 @@ $(document).ready(function(){
 
 				request.onsuccess = function(e){
 					var result = e.target.result;
-					loginAux = email;
-					$("#enter").text("Conta");
 
 					if(result.email == email && result.senha == senha && result.tipoUser == "normal"){
+						$("#enter").text("Conta");
+						loginAux = email;
 						$("#loginScreen").click(function(){
-							$(".main").load("accountScreen.html");
+							$(".main").load("accountScreen.html"); //Voltar aqui depois, possível bug
 						});
 
 						$(".main").load("accountScreen.html");
 					}else if(result.email == email && result.senha == senha && result.tipoUser == "admin"){
+						$("#enter").text("Conta");
+						loginAux = email;
 						$("#loginScreen").click(function(){
 							$(".main").load("adminScreen.html");
 						});
