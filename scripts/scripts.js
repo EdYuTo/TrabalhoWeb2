@@ -32,7 +32,8 @@ $(document).ready(function(){
 	});
 
 	$("#loginScreen").click(function(){
-		$(".main").load("loginScreen.html");
+		if(loginAux == null)
+			$(".main").load("loginScreen.html");
 	});		
 });
 
@@ -60,13 +61,12 @@ request.onupgradeneeded = function(event) {
 		storeUser.createIndex("nome", "nome", {unique: false});
 		storeUser.createIndex("senha", "senha", {unique: false});
 		storeUser.createIndex("email", "email", {unique: true});
-		storeUser.createIndex("telefone", "telefone", {unique: true});
+		storeUser.createIndex("telefone", "telefone", {unique: false});
 		storeUser.createIndex("rua", "rua", {unique: false});
 		storeUser.createIndex("bairro", "bairro", {unique: false});
 		storeUser.createIndex("numCasa", "numCasa", {unique: false});
 		storeUser.createIndex("numCartao", "numCartao", {unique: false});
 		storeUser.createIndex("bandeiraCartao", "bandeiraCartao", {unique: false});
-		storeUser.createIndex("foto", "foto", {unique: false});
 		storeUser.createIndex("idAdmin", "idAdmin", {unique: false});
 		storeUser.createIndex("tipoUser", "tipoUser", {unique: false});
 
@@ -78,19 +78,16 @@ request.onupgradeneeded = function(event) {
 		storeAnimal.createIndex("raca", "raca", {unique: false});
 		storeAnimal.createIndex("racaMae", "racaMae", {unique: false});
 		storeAnimal.createIndex("racaPai", "racaPai", {unique: false});
-		storeAnimal.createIndex("foto", "foto", {unique: false});
 
 	var storeProduct = db.createObjectStore("product", {keyPath: "codigoBarra"});
 		storeProduct.createIndex("nome", "nome", {unique: false});
 		storeProduct.createIndex("preco", "preco", {unique: false});
 		storeProduct.createIndex("quantidade", "quantidade", {unique: false});
-		storeProduct.createIndex("imagem", "imagem", {unique: false});
 		storeProduct.createIndex("codigoBarra", "codigoBarra", {unique: true});
 
 	var storeService = db.createObjectStore("service", {keyPath: "nome"});
 		storeService.createIndex("nome", "nome", {unique: true});
 		storeService.createIndex("preco", "preco", {unique: false});
-		storeService.createIndex("imagem", "imagem", {unique: false});
 		storeService.createIndex("data", "data", {unique: false});
 
 	var storeHaveService = db.createObjectStore("haveService", { autoIncrement : true });
@@ -114,7 +111,7 @@ request.onsuccess = function(event){
 		numCasa: 500,
 		numCartao: 123456789,
 		bandeiraCartao: "visa",
-		foto: null,
+		imagem: null,
 		idAdmin: 1,
 		tipoUser: "admin"
 	};
@@ -127,7 +124,5 @@ request.onsuccess = function(event){
 	}
 
 	requestAdd.onerror = function(e){
-		console.log(e);
-		console.log("bah, morreu");
 	}
 }

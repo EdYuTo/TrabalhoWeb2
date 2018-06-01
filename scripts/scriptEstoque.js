@@ -2,7 +2,6 @@ $(document).ready(function(){
 
     var db = indexedDB.open("db", 1);
     var arrayCod = [];
-    var arrayImagem = [];
     var arrayNome = [];
     var arrayPreco = [];
     var arrayQuant = [];
@@ -17,14 +16,12 @@ $(document).ready(function(){
             let cursor = event.target.result;
             if (cursor) {
                 arrayCod.push(cursor.value.codigoBarra);
-                arrayImagem.push(cursor.value.imagem);
                 arrayNome.push(cursor.value.nome);
                 arrayPreco.push(cursor.value.preco);
                 arrayQuant.push(cursor.value.quantidade);
                 cursor.continue();
             }
             else {
-                $(".imagemProduct").val(arrayImagem[i]);
                 $(".codProduct").val(arrayCod[i]);
                 $(".nameProduct").val(arrayNome[i]);
                 $(".precoProduct").val(arrayPreco[i]);
@@ -40,10 +37,9 @@ $(document).ready(function(){
        console.log(i+" "+arrayCod[i].length);
 
         if(arrayCod[i] != undefined){
-           if(i < arrayCod[i].length) {
+           if(i < arrayCod[i].length - 1) {
                i++;
 
-               $(".imagemProduct").val(arrayImagem[i]);
                $(".codProduct").val(arrayCod[i]);
                $(".nameProduct").val(arrayNome[i]);
                $(".precoProduct").val(arrayPreco[i]);
@@ -59,7 +55,6 @@ $(document).ready(function(){
             if(i > 0){
                 i = i - 1;
 
-                $(".imagemProduct").val(arrayImagem[i]);
                 $(".codProduct").val(arrayCod[i]);
                 $(".nameProduct").val(arrayNome[i]);
                 $(".precoProduct").val(arrayPreco[i]);
@@ -102,7 +97,6 @@ $(document).ready(function(){
             request.onsuccess = function (e) {
                 var result = e.target.result;
 
-                result.imagem = $(".imagemProduct").val();
                 result.codigoBarra = $(".codProduct").val();
                 result.nome =  $(".nameProduct").val();
                 result.preco = $(".precoProduct").val();

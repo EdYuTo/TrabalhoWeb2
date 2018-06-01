@@ -31,7 +31,6 @@ $(document).ready(function(){
                     numCasa: numCasa,
                     numCartao:null,
                     bandeiraCartao:null,
-                    foto: null,
                     tipoUser: "normal"
                     };
 

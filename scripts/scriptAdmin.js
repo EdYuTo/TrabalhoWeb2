@@ -46,13 +46,12 @@ $(document).ready(function(){
 
     $("#btOut").click(function(){
         $("#enter").text("Entrar");
-
+        loginAux = null;
         $(".main").load("initialScreen.html");
 
         $("#loginScreen").click(function(){
             $(".main").load("loginScreen.html");
 
-            loginAux = null;
         });
     });
 

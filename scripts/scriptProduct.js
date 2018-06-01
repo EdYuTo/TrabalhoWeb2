@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	var db = indexedDB.open("db", 1);
 	var arrayCod = [];
-	var arrayImagem = [];
 	var arrayNome = [];
 	var arrayPreco = [];
 	var arrayQuant = [];
@@ -16,7 +15,6 @@ $(document).ready(function(){
 			let cursor = event.target.result;
 			if (cursor) {
 				arrayCod.push(cursor.value.codigoBarra);
-				arrayImagem.push(cursor.value.imagem);
 				arrayNome.push(cursor.value.nome);
 				arrayPreco.push(cursor.value.preco);
 				arrayQuant.push(cursor.value.quantidade);
@@ -25,7 +23,7 @@ $(document).ready(function(){
 			else {
 				for(i = 0; i < arrayCod.length; i++) {
 					$("#produtos").append(
-						"<li>" + arrayImagem[i] + "<br>Nome: "
+						"<li><br>Nome: "
 						+ arrayNome[i] + "<br> Preço: "
 						+ arrayPreco[i] + "<br>"
 						+ "<input type = 'number' value = '0' id = '" +arrayCod[i] +"'>"
@@ -39,7 +37,6 @@ $(document).ready(function(){
 
 	var arrayNameService = [];
 	var arrayDateService = [];
-	var arrayImageService = [];
 	var arrayPrecoService = [];
 	let arrayKey = [];
 
@@ -54,7 +51,6 @@ $(document).ready(function(){
 			let cursor = event.target.result;
 			if (cursor) {
 				arrayNameService.push(cursor.value.nome);
-				arrayImageService.push(cursor.value.imagem);
 				arrayPrecoService.push(cursor.value.preco);
 				arrayKey.push(cursor.key);
 				cursor.continue();
@@ -62,7 +58,7 @@ $(document).ready(function(){
 			else {
 				for(i = 0; i < arrayPrecoService.length; i++) {
 					$("#services").append(
-						"<li>" + arrayImageService[i] + "<br>Nome: "
+						"<li><br>Nome: "
 						+ arrayNameService[i] + "<br> Preço: "
 						+ arrayPrecoService[i] + "<br>"
 						+ "Nome animal: <input type = 'text' id = 'dog" +arrayKey[i] +"'> <br>"

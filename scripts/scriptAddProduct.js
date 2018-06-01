@@ -5,7 +5,6 @@ $(document).ready(function(){
     $("#subButtonId").click(function(){
         var name = $("#inputName").val();
         var quantidade = $("#inputQuant").val();
-        var imagem = $("#inputImage").val();
         var preco = $("#inputPreco").val();
         var codBarras = $("#inputCodBarras").val();
 
@@ -23,7 +22,6 @@ $(document).ready(function(){
                 var product = {
                     nome: name,
                     quantidade: quantidade,
-                    imagem:null,
                     preco:preco,
                     codigoBarra: codBarras
                 };
@@ -36,8 +34,8 @@ $(document).ready(function(){
                 }
 
                 request.onerror = function(e){
-                    console.log(e);
-                    console.log("Não consegui cadastrar!");
+                  //  console.log(e);
+               //     console.log("Não consegui cadastrar!");
                 }
                 db.close();
             }

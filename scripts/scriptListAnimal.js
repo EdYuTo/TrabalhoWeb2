@@ -19,7 +19,6 @@ $(document).ready(function(){
 	let dogRacaPai = [];
 	let dogTosa = [];
 	let dogBanho = [];
-	let dogFoto = [];
 	let dogKey = [];
 	var i = 0;
 
@@ -39,7 +38,6 @@ $(document).ready(function(){
 					dogRaca.push(cursor.value.raca);
 					dogRacaMae.push(cursor.value.racaMae);
 					dogRacaPai.push(cursor.value.racaPai);
-					dogFoto.push(cursor.value.foto);
 					dogKey.push(cursor.key);
 					cursor.continue();
 				}
@@ -75,36 +73,7 @@ $(document).ready(function(){
 				cursor.continue();
 			}
 			else {
-				var total = 0, controle = 1, controle2 = 1;
 
-				for(var j = 0; j < dogsService.length; j++){
-					for(var k = 0; k < dogIdade.length; k++){
-
-						if(dogNome[k] == dogsService[j] && serviceService[j].nome === "Tosa" && controle == 1){
-							console.log(dogNome[k]+ " "+ dogsService[j]);
-							total += serviceService[j].preco;
-							var data = serviceService[j].data;
-							controle = 0;
-							console.log(data);
-
-
-							$("#servicosAnimal").append(
-								"Tosa: <input type='text' value=' " + data
-							+ "'> <br> Total: <input type='number' disabled value='"+total +"'>");
-						}
-
-						if(dogNome[k] == dogsService[j] && serviceService[j].nome === "Banho" && controle2 == 1){
-							total += serviceService[j].preco;
-							var data = serviceService[j].data;
-							controle2 = 0;
-							console.log(data);
-
-							$("#servicosAnimal").append(
-								"Banho: <input type='text' value=' " + data
-							+ "'> <br> Total: <input type='number' disabled value='"+total +"'>");
-						}
-					}
-				}
 			}
 			db.close();
 		};

@@ -26,7 +26,6 @@ $(document).ready(function(){
                     raca: raca,
                     racaMae: racaMae,
                     racaPai: racaPai,
-                    foto: null
                 };
 
                 var request = store.add(animal);
