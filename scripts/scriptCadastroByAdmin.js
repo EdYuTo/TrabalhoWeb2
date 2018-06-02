@@ -1,6 +1,3 @@
-/**
- * Created by Abe on 24/05/2018.
- */
 $(document).ready(function(){
         $("#subButtonId").click(function(){
             var name = $("#inputName").val();

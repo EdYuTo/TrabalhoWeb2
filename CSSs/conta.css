@@ -1,9 +1,4 @@
-#idLeftNavC{
-  float: left;
-  width: 30%;
-  height: 100%;
-}
-
+/*Borda da foto do usuário*/
 #borderFoto1 {
   border: 5px solid rgb(152, 197, 73);;
   border-radius: 5px;
@@ -15,7 +10,9 @@
   border-radius: 5px;
   margin-bottom: 40px;
 }
+/*Borda da foto do usuário*/
 
+/*Borda divisoria entre dados e foto*/
 #borderContent {
   border-left: 3.5px solid rgb(152, 197, 73);
   border-radius: 5px;
@@ -25,7 +22,9 @@
   display: block;
   display: inline-block;
 }
+/*Borda divisoria entre dados e foto*/
 
+/*Estilos para botões da página da conta do usuário*/
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -35,7 +34,7 @@
   z-index: -1;
 }
 
-.button{
+.accountButton{
   background-color: rgb(56, 137, 76);
   color: white;
   display: inline-block;
@@ -44,4 +43,6 @@
   font-size: 16px;
   padding: 10px 20px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
+/*Estilos para botões da página da conta do usuário*/

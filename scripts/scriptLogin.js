@@ -31,7 +31,7 @@ $(document).ready(function(){
 					var result = e.target.result;
 
 					if(result.email == email && result.senha == senha && result.tipoUser == "normal"){
-						$("#enter").text("Conta");
+						$("#loginScreen").text("Conta");
 						loginAux = email;
 						$("#loginScreen").click(function(){
 							$(".main").load("accountScreen.html"); //Voltar aqui depois, possível bug
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 						$(".main").load("accountScreen.html");
 					}else if(result.email == email && result.senha == senha && result.tipoUser == "admin"){
-						$("#enter").text("Conta");
+						$("#loginScreen").text("Conta");
 						loginAux = email;
 						$("#loginScreen").click(function(){
 							$(".main").load("adminScreen.html");

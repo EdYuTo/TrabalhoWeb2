@@ -8,6 +8,7 @@
 	background-color: whitesmoke;
   margin: auto;
   width: 75%;
+  height: 75%;
   border: 3px solid green;
   padding: 20px;
   margin-top: 50px;
@@ -16,17 +17,6 @@
   text-align: center;
 }
 
-#btEntrar{
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  display: inline-block;
-  background-color: rgb(56, 137, 76);
-  color: white;
-  text-align: center;
-  padding: 10px 20px;
-}
-
-#btEntrar:hover{
-    background-color: rgb(152, 197, 73);
+.logIN{
+  margin: 20px 0 50px;
 }

@@ -1,32 +1,35 @@
-<meta charset="UTF-8">
 <script src = "scripts/scriptAdmin.js"></script>
 
-<main class="content">
-    <div class="clearfix" style="margin-top: 20px;">
-    <div id = "idLeftNavC">
+<div class="container">
+	<div class="pg row clearfix">
+		<div class="col-sm-6 text-center">
+			<img id = "borderFoto1" src="Imagens\unknown.jpg" width="200" height="200" alt="foto de perfil">
+			<input type="file" name="file" id="file2" class="inputfile">
+			<br><label class="accountButton" for="file2">Alterar foto</label>
 
-        <br><button type="button" class="button" id = "addUser">Adicionar Usuário/Adm</button>
-        <br><button type="button" class="button" id = "addProduct">Adicionar Produto</button>
-        <br><button type="button" class="button" id = "addService">Adicionar Serviço</button>
-        <br><button type="button" class="button" id = "gerService">Gerenciar Serviço</button>
-        <br><button type="button" class="button" id = "Estoque">Estoque</button>
-    </div>
 
-    <div id = "borderContent">
-        <h1 style="color: rgb(152, 197, 73);">Meus Dados</h1>
-        <p>Nome: <input type="text" name="name" class = "nomeUser"></p>
-        <p>Email: <input type="text" name="email" class = "emailUser"></p>
-        <p >Telefone: <input type="number" name="tel" class = "telUser"></p>
+			<br><button type="button" class="accountButton" id = "addUser">Adicionar Usuário/Adm</button>
+			<br><button type="button" class="accountButton" id = "addProduct">Adicionar Produto</button>
+			<br><button type="button" class="accountButton" id = "addService">Adicionar Serviço</button>
+			<br><button type="button" class="accountButton" id = "gerService">Gerenciar Serviço</button>
+			<br><button type="button" class="accountButton" id = "Estoque">Estoque</button>
+		</div>
+		<div class="col-sm-6">
+			<div id = "borderContent">
+				<h1 style="color: rgb(152, 197, 73);">Meus Dados</h1>
+				<p>Nome:</p><input type="text" name="name" class = "nomeUser">
+				<p>Email:</p><input type="text" name="email" class = "emailUser">
+				<p >Telefone:</p><input type="number" name="tel" class = "telUser">
 
-        <h1 style="color: rgb(152, 197, 73)";>Endereço</h1>
-        <p>Rua: <input type="text" name="street" class = "streetUser"></p>
-        <p>Número: <input type="number" name="num" class = "numCasaUser"></p>
-        <p>Bairro: <input type="text" name="bairro" class = "bairroUser"></p>
-    </div>
+				<h1 style="color: rgb(152, 197, 73);">Endereço</h1>
+				<p>Rua:</p><input type="text" name="street" class = "streetUser">
+				<p>Número:</p><input type="number" name="num" class = "numCasaUser">
+				<p>Bairro:</p><input type="text" name="bairro" class = "bairroUser">
 
-    <div style="margin-top: 20px;">
-      <button class="button" id = "btOut" >Sair</button>
-    </div>
-
-  </div>
-</main>
+				<div style="margin-top: 20px;">
+					<button class="accountButton" id = "btOut" >Sair</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

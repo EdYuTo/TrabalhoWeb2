@@ -1,24 +1,36 @@
-<meta charset="UTF-8">
 <script src = "scripts/scriptAddProduct.js"></script>
 
-<main class="content">
-    <div class="clearfix">
-        <h1 style="text-align: center;">Cadastre um produto</h1>
-        <div  id="bg1">
-            <h1>Dados</h1>
-            <p>Nome do produto:</p>
-            <input class = "ajusteContent" type="text" name="nome" id = "inputName" placeholder="Insira o nome.."><br/>
-
-            <p>Preço:</p>
-            <input class = "ajusteContent" type="number" name="email" id = "inputPreco" placeholder="Insira o preço.."><br/>
-
-            <p>Código de barras:</p>
-            <input class = "ajusteContent" type="number" name="numeroTel" id = "inputCodBarras" placeholder="Insira o codigo de barrase..."><br/>
-
-            <p>Quantidade:</p>
-            <input class = "ajusteContent" type="number" name="numeroTel" id = "inputQuant" placeholder="Insira a quantidade..."><br/>
-
-            <button  id = "subButtonId">Submeter</button>
+<div class="container">
+    <div class="pg row clearfix">
+        <div class="col-sm-12 text-center">
+            <h1>Cadastre um produto</h1>
         </div>
     </div>
-</main>
+    <div class="pg row clearfix">
+        <div class="col-sm-12">
+            <div  id="bg1" >
+                <h1>Dados</h1>
+                <p>Nome do produto:</p>
+                <input class = "ajusteContent" type="text" name="nome" id = "inputName" placeholder="Insira o nome.."><br/>
+
+                <p>Preço:</p>
+                <input class = "ajusteContent" type="number" name="preco" id = "inputPreco" placeholder="Insira o preço.."><br/>
+
+                <p>Código de barras:</p>
+                <input class = "ajusteContent" type="number" name="codbarra" id = "inputCodBarras" placeholder="Insira o codigo de barras..."><br/>
+
+                <p>Quantidade:</p>
+                <input class = "ajusteContent" type="number" name="quantidade" id = "inputQuant" placeholder="Insira a quantidade..."><br/> 
+<!--
+                <p>Imagem:</p>
+                <input class = "ajusteContent" type="image" name="bairroNome" id = "inputBairro" placeholder="Insira a imagem..."><br/>
+-->
+                <p>Imagem:</p>
+                <input  class = "ajusteContent inputImage" type="text" name="imageProduct" id="caminho" placeholder="Insira o caminho da imagem...">
+                <input type="file" name="file" id="file3" class="inputfile">
+                <br><label class="accountButton" for="file3">Procurar imagem</label>
+                <br><button  id = "subButtonId">Submeter</button>
+            </div>
+        </div>
+    </div>
+</div>

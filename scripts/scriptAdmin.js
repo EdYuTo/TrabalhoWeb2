@@ -45,18 +45,25 @@ $(document).ready(function(){
     });
 
     $("#btOut").click(function(){
-        $("#enter").text("Entrar");
+        $("#loginScreen").text("Entrar");
         loginAux = null;
         $(".main").load("initialScreen.html");
 
         $("#loginScreen").click(function(){
             $(".main").load("loginScreen.html");
-
         });
     });
 
     $("#gerService").click(function(){
-        $(".main").load("serviceScreen.html");
+        $(".main").load("serviceGerScreen.html");
     });
+});
 
+/* Altera foto da conta do admin */
+document.querySelector("#file2").addEventListener('change', function () {
+    const [file] = this.files;
+    if (file) {
+        var str = "Imagens\\" + file.name;
+        $("#borderFoto1").attr("src", str);
+    }
 });

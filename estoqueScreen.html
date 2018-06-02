@@ -1,16 +1,31 @@
 <script src = "scripts/scriptEstoque.js"></script>
 
-<main class="content">
-    <h2>Estoque</h2>
-    <p>
-        Código: <input class="codProduct" type="number"><br>
-        Nome: <input class="nameProduct" type="text"><br>
-        Preço: <input class="precoProduct" type="number"><br>
-        Quantidade: <input class="quantidadeProduct" type="number"><br>
-    </p>
 
-    <button id = "deleteButtonEstoque">Deletar</button>
-    <button id = "saveButtonEstoque">Salvar</button>
-    <button id = "previousButtonEstoque">Voltar</button>
-    <button id = "nextButtonEstoque">Próximo</button>
-</main>
+<div class="container">
+	<div class="pg row clearfix">
+		<div class="col-sm-12 text-center">
+			<h1>Estoque</h1>
+		</div>
+	</div>
+	<div class="pg row clearfix">
+		<div class="col-sm-12">
+			<div  id="bg1" >
+				<p>Código:</p> <input class="codProduct ajusteContent" type="number"><br>
+				<p>Nome: </p><input class="nameProduct ajusteContent" type="text"><br>
+				<p>Preço:</p> <input class="precoProduct ajusteContent" type="number"><br>
+				<p>Quantidade:</p> <input class="quantidadeProduct ajusteContent" type="number"><br>
+
+				<p>Imagem:</p>
+				<input  class = "ajusteContent inputImage" type="text" name="imageProduct" id="caminho" placeholder="Insira o caminho da imagem...">
+				<input type="file" name="file" id="file3" class="inputfile">
+				<br><label class="accountButton" for="file3">Procurar imagem</label>
+
+				<br>
+				<button class="accountButton" id = "deleteButtonEstoque">Deletar</button>
+				<button class="accountButton" id = "saveButtonEstoque">Salvar</button>
+				<button class="accountButton" id = "previousButtonEstoque">Voltar</button>
+				<button class="accountButton" id = "nextButtonEstoque">Próximo</button>
+			</div>
+		</div>
+	</div>
+</div>

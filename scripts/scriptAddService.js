@@ -1,10 +1,11 @@
 /**
- * Created by Abe on 23/05/2018.
+ * Created by Abe on 30/05/2018.
  */
 $(document).ready(function(){
-    $("#subButtonId").click(function(){
+	$("#subButtonId").click(function(){
         var name = $("#inputNameService").val();
         var data = $("#inputDateService").val();
+        var imagem = $("#inputImageService").val();
         var preco = $("#inputPrecoService").val();
 
         if(name == null || preco == null || data == null){
@@ -20,6 +21,7 @@ $(document).ready(function(){
                 var store = transaction.objectStore("service");
                 var service = {
                     nome: name,
+                    imagem:null,
                     data: data,
                     preco:preco
                 };
@@ -32,10 +34,19 @@ $(document).ready(function(){
                 }
 
                 request.onerror = function(e){
-
+                    //console.log(e);
+                    //console.log("Não consegui cadastrar!");
                 }
                 db.close();
             }
         }
     });
+});
+
+document.querySelector("#file4").addEventListener('change', function () {
+    const [file] = this.files;
+    if (file) {
+        var str = "Imagens\\" + file.name;
+        $("#inputImageService").val(str);
+    }
 });

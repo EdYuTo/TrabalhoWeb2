@@ -3,14 +3,13 @@ $(document).ready(function(){
 	$("#listAnimal").click(function(){
 		$(".main").load("listAnimalScreen.html");
 	});
-
+	
 	$("#addAnimal").click(function(){
 		$(".main").load("addAnimalScreen.html");
-	});
+	});	
 
 	$("#btOut").click(function(){
-		$("#enter").text("Entrar");
-
+		$("#loginScreen").text("Entrar");
 		loginAux = null;
 
 		$(".main").load("initialScreen.html");
@@ -84,3 +83,11 @@ $(document).ready(function(){
 	}
 });
 
+/* Altera foto da conta do usuario */
+document.querySelector("#file").addEventListener('change', function () {
+		const [file] = this.files;
+		if (file) {
+			var str = "Imagens\\" + file.name;
+			$("#borderFoto1").attr("src", str);
+		}
+});

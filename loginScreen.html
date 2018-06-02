@@ -1,14 +1,21 @@
 <script src = "scripts/scriptLogin.js"></script>
-<main class = "content">
-	<div class = "clearfix">
-		<h1>Logue-se!</h1>
-		<div class = "clearfix" id="bg">
-			<p>Email:</p><input type="email" name="email" id = "emailLogin" placeholder="Your e-mail here..."><br><br>
-			<p>Senha:</p><input type="password" name="password" id = "passwordLogin" placeholder="Your password here..."><br><br>
+<div class = "container">
+	<div class="pg row clearfix">
+		<div class="col-sm-12 text-center">
+			<h1>Logue-se!</h1>
+		</div>
+	</div>
+
+	<div class="pg row clearfix">
+		<div class="col-sm-12 text-center" id="bg" style="min-width: 260px;">
+			<div class="logIN">
+				<p>Email:</p><input type="email" name="email" id = "emailLogin" placeholder="Your e-mail here...">
+			</div>
+			<div class="logIN">
+				<p>Senha:</p><input type="password" name="password" id = "passwordLogin" placeholder="Your password here...">
+			</div>
 			<p>Ainda não possui uma conta?<span class = "not_a_link" id = "btCadastrar"> Cadastre-se aqui!</span><br></p>
-			
-			<!-- <button id = "btCadastrar">Cadastrar</button> -->
 			<button id = "btEntrar">Entrar</button>
 		</div>
 	</div>
-</main>
+</div>
