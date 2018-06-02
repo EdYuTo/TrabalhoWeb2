@@ -8,8 +8,6 @@ $(document).ready(function(){
 	let dogRaca = [];
 	let dogRacaMae = [];
 	let dogRacaPai = [];
-	let dogTosa = [];
-	let dogBanho = [];
 	let dogFoto = [];
 	let dogKey = [];
 	var i = 0;
@@ -44,7 +42,7 @@ $(document).ready(function(){
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
 			}
-		db.close();
+			db.close();
 		};
 	}
 
@@ -66,18 +64,7 @@ $(document).ready(function(){
 				cursor.continue();
 			}
 			else {
-				var j = 0
 
-				while(j < dogsService.length){
-					if(dogsService[j] == dogNome[i]){
-						$("#servicosAnimal").replaceWith("<p>Nome: <br>"
-						+ serviceService[i].nome
-						+ "<br> Data: <br>"
-						+serviceService[i].data
-						+"<br></p>");
-					}
-					j++;
-				}
 			}
 			db.close();
 		};
@@ -147,18 +134,6 @@ $(document).ready(function(){
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
 			}
-			var j = 0
-
-			while(j < dogsService.length){
-				if(dogsService[j] == dogNome[i]){
-					$("#servicosAnimal").replaceWith("<p>Nome: <br>"
-					+ serviceService[i].nome
-					+ "<br> Data: <br>"
-					+serviceService[i].data
-					+"<br></p>");
-				}
-				j++;
-			}
 		}
 	});
 
@@ -177,27 +152,15 @@ $(document).ready(function(){
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
 			}
-			var j = 0
-
-			while(j < dogsService.length){
-				if(dogsService[j] == dogNome[i]){
-					$("#servicosAnimal").replaceWith("<p>Nome: <br>"
-					+ serviceService[i].nome
-					+ "<br> Data: <br>"
-					+serviceService[i].data
-					+"<br></p>");
-				}
-				j++;
-			}
 		}
 	});
 });
 
 /* Altera foto do animal listado */
 document.querySelector("#file1").addEventListener('change', function () {
-		const [file] = this.files;
-		if (file) {
-			var str = "Imagens\\" + file.name;
-			$("#borderFoto2").attr("src", str);
-		}
+	const [file] = this.files;
+	if (file) {
+		var str = "Imagens\\" + file.name;
+		$("#borderFoto2").attr("src", str);
+	}
 });

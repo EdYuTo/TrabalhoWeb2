@@ -32,23 +32,23 @@ $(document).ready(function(){
 
                 console.log(arrayNome[i]);
             }
-         db.close();
+            db.close();
         }
     }
 
     $("#nextButtonEstoque").click(function(){
-       console.log(i+" "+arrayCod[i].length);
+        console.log(i+" "+arrayCod[i].length);
 
         if(arrayCod[i] != undefined){
-           if(i < arrayCod[i].length - 1) {
-               i++;
+            if(i < arrayNome.length - 1 ) {
+                i++;
 
-               $(".imagemProduct").val(arrayImagem[i]);
-               $(".codProduct").val(arrayCod[i]);
-               $(".nameProduct").val(arrayNome[i]);
-               $(".precoProduct").val(arrayPreco[i]);
-               $(".quantidadeProduct").val(arrayQuant[i]);
-           }
+                $(".imagemProduct").val(arrayImagem[i]);
+                $(".codProduct").val(arrayCod[i]);
+                $(".nameProduct").val(arrayNome[i]);
+                $(".precoProduct").val(arrayPreco[i]);
+                $(".quantidadeProduct").val(arrayQuant[i]);
+            }
         }
     });
 
@@ -69,25 +69,25 @@ $(document).ready(function(){
     });
 
     $("#deleteButtonEstoque").click(function(){
-       if(i < 0){
-           alert("Não há o que deletar!");
-       }else if(arrayCod[i] != undefined){
-           var db = indexedDB.open("db", 1);
+        if(i < 0){
+            alert("Não há o que deletar!");
+        }else if(arrayCod[i] != undefined){
+            var db = indexedDB.open("db", 1);
 
-           db.onsuccess = function(event){
-               db = event.target.result;
+            db.onsuccess = function(event){
+                db = event.target.result;
 
-               var transaction = db.transaction(["product"], "readwrite");
-               var store = transaction.objectStore("product");
+                var transaction = db.transaction(["product"], "readwrite");
+                var store = transaction.objectStore("product");
 
-               var request = store.delete(arrayCod[i]);
+                var request = store.delete(arrayCod[i]);
 
-               request.onsuccess = function (e) {
-                   alert("Exluido com sucesso");
-                   $(".main").load("adminScreen.html");
-               }
-           };
-       }
+                request.onsuccess = function (e) {
+                    alert("Exluido com sucesso");
+                    $(".main").load("adminScreen.html");
+                }
+            };
+        }
     });
 
     $("#saveButtonEstoque").click(function(){

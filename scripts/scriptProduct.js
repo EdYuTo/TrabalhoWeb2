@@ -1,5 +1,42 @@
 $(document).ready(function(){
-	/*Coloca, no html, os serviços cadastrados*/
+	var db = indexedDB.open("db", 1);
+	var arrayCod = [];
+	var arrayImagem = [];
+	var arrayNome = [];
+	var arrayPreco = [];
+	var arrayQuant = [];
+	var i = 0;
+
+	db.onsuccess = function(event) {
+		db = event.target.result;
+
+		var objectStore = db.transaction("product").objectStore("product");
+
+		objectStore.openCursor().onsuccess = event => {
+			let cursor = event.target.result;
+			if (cursor) {
+				arrayCod.push(cursor.value.codigoBarra);
+				arrayImagem.push(cursor.value.imagem);
+				arrayNome.push(cursor.value.nome);
+				arrayPreco.push(cursor.value.preco);
+				arrayQuant.push(cursor.value.quantidade);
+				cursor.continue();
+			}
+			else {
+				for(i = 0; i < arrayCod.length; i++) {
+					$("#produtos").append(
+						"<li>" + arrayImagem[i] + "<br>Nome: "
+						+ arrayNome[i] + "<br> Preço: "
+						+ arrayPreco[i] + "<br>"
+						+ "<input type = 'number' value = '0' id = '" +arrayCod[i] +"'>"
+						+"</li> <br>");
+				}
+				console.log(arrayNome[i]);
+			}
+			db.close();
+		}
+	}
+
 	var arrayNameService = [];
 	var arrayDateService = [];
 	var arrayImageService = [];
@@ -38,8 +75,32 @@ $(document).ready(function(){
 		}
 	}
 
+	$("#comprarProduto").click(function(){
+		if(loginAux == null)
+			alert("LOGUE-SE PARA COMPRAR");
+		else{
+			for(var j = 0; j < arrayCod.length; j++){
+				realizaCompra(arrayCod[j],$("#"+arrayCod[j]).val());
+			}
 
-/*Funções auxíliares*/
+			alert("Compra realizada com sucesso!");
+			$(".main").load("accountScreen.html");
+		}
+	})
+
+	$("#marcarService").click(function(){
+		if(loginAux == null)
+			alert("LOGUE-SE PARA MARCAR");
+		else {
+			for (var j = 0; j < arrayPrecoService.length; j++) {
+				console.log(arrayNameService[j] + " " + $("#service" + arrayKey[j]).val() + $("#dog" + arrayKey[j]).val());
+
+				marcarService($("#dog" + arrayKey[j]).val(), $("#service" + arrayKey[j]).val(), arrayNameService[j], arrayPrecoService[j]);
+			}
+		}
+	})
+
+	/*Funções auxíliares*/
 	function marcarService(nomeAnimal, data, nome, preco)
 	{
 		var db = indexedDB.open("db", 1);
