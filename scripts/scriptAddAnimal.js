@@ -6,6 +6,7 @@ $(document).ready(function(){
         var raca = $("#racaAnimal").val();
         var racaPai = $("#racaPai").val();
         var racaMae = $("#racaMae").val();
+        var foto = "Imagens\\unknown.jpg";
 
         if(name.length == 0 || idade.length == 0 || peso.length == 0 || raca.length == 0 || racaPai.length == 0 || racaMae.length == 0){
             alert("Preencha todos os campos, por favor!");
@@ -26,7 +27,7 @@ $(document).ready(function(){
                     raca: raca,
                     racaMae: racaMae,
                     racaPai: racaPai,
-                    foto: null
+                    foto: foto
                 };
 
                 var request = store.add(animal);

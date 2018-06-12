@@ -21,16 +21,16 @@ $(document).ready(function(){
 
 	$("#btSave").click(function(){
 
-			var name, email, tel, street, numCasa, bairro;
-			var db = indexedDB.open("db", 1);
+		var name, email, tel, street, numCasa, bairro;
+		var db = indexedDB.open("db", 1);
 
-			db.onsuccess = function (event) {
-				db = event.target.result;
+		db.onsuccess = function (event) {
+			db = event.target.result;
 
-				var transaction = db.transaction(["usuarios"], "readwrite");
-				var store = transaction.objectStore("usuarios");
+			var transaction = db.transaction(["usuarios"], "readwrite");
+			var store = transaction.objectStore("usuarios");
 
-				if(loginAux != null) {
+			if(loginAux != null) {
 				var request = store.get(loginAux);
 
 				request.onsuccess = function (e) {
@@ -43,6 +43,7 @@ $(document).ready(function(){
 					result.bairro = $("#bairroUser").val();
 					result.numCartao = $("#numCard").val();
 					result.bandeiraCartao = $("#flagCard").val();
+					result.foto = $("#borderFoto1").attr("src");
 
 					store.put(result);
 				}
@@ -71,6 +72,7 @@ $(document).ready(function(){
 				$("#streetUser").val(result.rua);
 				$("#numCasaUser").val(parseInt(result.numCasa));
 				$("#bairroUser").val(result.bairro);
+				$("#borderFoto1").attr("src", result.foto);
 
 				if(result.bandeiraCartao != null)
 					$("#flagCard").val(result.bandeiraCartao);

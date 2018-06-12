@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var arrayNome = [];
 	var arrayPreco = [];
 	var arrayQuant = [];
+	var arrayDesc = [];
 	var i = 0;
 
 	db.onsuccess = function(event) {
@@ -20,16 +21,35 @@ $(document).ready(function(){
 				arrayNome.push(cursor.value.nome);
 				arrayPreco.push(cursor.value.preco);
 				arrayQuant.push(cursor.value.quantidade);
+				arrayDesc.push(cursor.value.descricao);
 				cursor.continue();
 			}
 			else {
 				for(i = 0; i < arrayCod.length; i++) {
+					var aux = '<option value="0">0';
+					for(j = 1; j <= arrayQuant[i]; j++) {
+						aux = aux + '<option value="' + j + '">' + j;
+					}
 					$("#produtos").append(
-						"<li>" + arrayImagem[i] + "<br>Nome: "
-						+ arrayNome[i] + "<br> Preço: "
-						+ arrayPreco[i] + "<br>"
-						+ "<input type = 'number' value = '0' id = '" +arrayCod[i] +"'>"
-						+"</li> <br>");
+						'<div class="col-lg-4 col-md-6 mb-4">' +
+							'<div class="card h-100">' +
+								'<img class="card-img-top img-fluid" src="'+ arrayImagem[i] +'" width="300" height="300" alt="produto">' +
+								'<div class="card-body">' +
+									'<h4 class="card-title">' +
+									'<p>'+ arrayNome[i] +'</p>' +
+									'</h4>' +
+									'<h5>R$'+ arrayPreco[i] +'</h5>' +
+									'<p class="card-text">'+ arrayDesc[i] +'</p>' +
+									'<h6>Em estoque '+ arrayQuant[i] +'</h6>' +
+								'</div>' +
+								'<div class="card-footer text-center">' +
+									'<p> Quantidade: <select id = "' + arrayCod[i] +'">' +
+									aux +
+									'</select></p>' +
+								'</div>' +
+							'</div>' +
+						'</div>'
+					)
 				}
 				console.log(arrayNome[i]);
 			}
@@ -62,15 +82,26 @@ $(document).ready(function(){
 			else {
 				for(i = 0; i < arrayPrecoService.length; i++) {
 					$("#services").append(
-						"<li>" + arrayImageService[i] + "<br>Nome: "
-						+ arrayNameService[i] + "<br> Preço: "
-						+ arrayPrecoService[i] + "<br>"
-						+ "Nome animal: <input type = 'text' id = 'dog" +arrayKey[i] +"'> <br>"
-						+ "Data: <input type = 'date' id = 'service" +arrayKey[i] +"'>"
-						+"</li> <br>");
+						'<div class="col-lg-4 col-md-6 mb-4">' +
+							'<div class="card h-100">' +
+								'<img class="card-img-top img-fluid" src="'+ arrayImageService[i] +'" width="300" height="300" alt="serviço">' +
+								'<div class="card-body">' +
+									'<h4 class="card-title">' +
+									'<p>'+ arrayNameService[i] +'</p>' +
+									'</h4>' +
+									'<h5>R$'+ arrayPrecoService[i] +'</h5>' +
+									'<p class="card-text"> Nome animal: <input type = "text" id = "dog' + arrayKey[i] +'"</p>' +
+								'</div>' +
+								'<div class="card-footer text-center">' +
+									'<p> Data: <input type = "date" id = "service' + arrayKey[i] +'"></p>' +
+								'</div>' +
+							'</div>' +
+						'</div>'
+					)
 				}
 				console.log(arrayNome[i]);
 			}
+			
 			db.close();
 		}
 	}
@@ -92,10 +123,26 @@ $(document).ready(function(){
 		if(loginAux == null)
 			alert("LOGUE-SE PARA MARCAR");
 		else {
+			var aux = 1, aux2 = arrayPrecoService.length;
 			for (var j = 0; j < arrayPrecoService.length; j++) {
-				console.log(arrayNameService[j] + " " + $("#service" + arrayKey[j]).val() + $("#dog" + arrayKey[j]).val());
+				if(($("#dog" + arrayKey[j]).val().length == 0) && ($("#service" + arrayKey[j]).val().length == 0))
+					aux2 = aux2 - 1;
+				else if(($("#dog" + arrayKey[j]).val().length == 0) || ($("#service" + arrayKey[j]).val().length == 0))
+					aux = aux * 0;
+			}
+			if(aux == 0 || aux2 == 0){
+				if (aux2 == 0) alert("Nenhum serviço escolhido.");
+				else if (aux == 0) alert("Preencha todos os campos dos serviços escolhidos!");
+			}
+			else {
+				for (var j = 0; j < arrayPrecoService.length; j++) {
+					console.log(arrayNameService[j] + " " + $("#service" + arrayKey[j]).val() + $("#dog" + arrayKey[j]).val());
 
-				marcarService($("#dog" + arrayKey[j]).val(), $("#service" + arrayKey[j]).val(), arrayNameService[j], arrayPrecoService[j]);
+					marcarService($("#dog" + arrayKey[j]).val(), $("#service" + arrayKey[j]).val(), arrayNameService[j], arrayPrecoService[j]);
+				}
+
+				alert("Serviços agendatos com sucesso!");
+				$(".main").load("accountScreen.html");
 			}
 		}
 	})
@@ -137,7 +184,6 @@ $(document).ready(function(){
 
 	function realizaCompra(id, quantidade)
 	{
-		//console.log(id, quantidade);
 		var db = indexedDB.open("db", 1);
 		db.onsuccess = function(event) {
 

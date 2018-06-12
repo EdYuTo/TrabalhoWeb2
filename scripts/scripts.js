@@ -48,7 +48,7 @@ function initMap(){
     var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Hello World!'
+        title: 'Marker'
     });
 }
 
@@ -86,6 +86,7 @@ request.onupgradeneeded = function(event) {
 		storeProduct.createIndex("preco", "preco", {unique: false});
 		storeProduct.createIndex("quantidade", "quantidade", {unique: false});
 		storeProduct.createIndex("imagem", "imagem", {unique: false});
+		storeProduct.createIndex("descricao", "descricao", {unique: false});
 		storeProduct.createIndex("codigoBarra", "codigoBarra", {unique: true});
 
 	var storeService = db.createObjectStore("service", {keyPath: "nome"});
@@ -125,10 +126,5 @@ request.onsuccess = function(event){
 	requestAdd.onsuccess = function(w){
 		console.log("cadastrado com sucesso");
 		$(".main").load("loginScreen.html");
-	}
-
-	requestAdd.onerror = function(e){
-		//console.log(e);
-		//console.log("bah, morreu");
 	}
 }

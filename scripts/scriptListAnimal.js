@@ -41,6 +41,7 @@ $(document).ready(function(){
 				$(".racaAnimal").val(dogRaca[i]);
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
+				$("#borderFoto2").attr("src", dogFoto[i]);
 			}
 			db.close();
 		};
@@ -112,7 +113,7 @@ $(document).ready(function(){
 				result.raca = $(".racaAnimal").val();
 				result.racaPai = $(".racaPai").val();
 				result.racaMae = $(".racaMae").val();
-
+				result.foto = $("#borderFoto2").attr("src");
 				store.put(result, dogKey[i]);
 			}
 			db.close();
@@ -133,6 +134,7 @@ $(document).ready(function(){
 				$(".racaAnimal").val(dogRaca[i]);
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
+				$("#borderFoto2").attr("src", dogFoto[i]);
 			}
 		}
 	});
@@ -151,6 +153,7 @@ $(document).ready(function(){
 				$(".racaAnimal").val(dogRaca[i]);
 				$(".racaPai").val(dogRacaPai[i]);
 				$(".racaMae").val(dogRacaMae[i]);
+				$("#borderFoto2").attr("src", dogFoto[i]);
 			}
 		}
 	});

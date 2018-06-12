@@ -21,20 +21,17 @@ $(document).ready(function(){
 
 				var request = store.get(email);
 
-				/*PROBLEMA AQUI, NÃO APARECE O ALERT*/
-				request.onerror = function(e){
-					alert("Usuário inexistente, cadastre-se!");
-					console.log("Usuário inexistente");
-				}
-
 				request.onsuccess = function(e){
 					var result = e.target.result;
+					if(result == undefined){
+						alert("Usuário inexistente, cadastre-se!");
+					}
 
 					if(result.email == email && result.senha == senha && result.tipoUser == "normal"){
 						$("#loginScreen").text("Conta");
 						loginAux = email;
 						$("#loginScreen").click(function(){
-							$(".main").load("accountScreen.html"); //Voltar aqui depois, possível bug
+							$(".main").load("accountScreen.html");
 						});
 
 						$(".main").load("accountScreen.html");

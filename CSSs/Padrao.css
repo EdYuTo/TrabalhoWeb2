@@ -17,17 +17,12 @@
 /*Barra de navegação*/
 
 
-
-.card-img-top{
-    cursor:pointer;
-}
-
-
 /*Elementos básicos para padronizar o site*/
 button{
     cursor: pointer;
     font-size: 16px;
     border: none;
+    border-radius: 5px;
     display: inline-block;
     background-color: rgb(56, 137, 76);
     color: white;

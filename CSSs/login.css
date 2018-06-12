@@ -1,9 +1,12 @@
+/* Transforma em 'link' */
 .not_a_link{
   color:rgb(152, 197, 73);
   text-decoration: underline; 
   cursor: pointer;
 }
+/* Transforma em 'link' */
 
+/* Fundo e estilo */
 #bg{
 	background-color: whitesmoke;
   margin: auto;
@@ -20,3 +23,4 @@
 .logIN{
   margin: 20px 0 50px;
 }
+/* Fundo e estilo */

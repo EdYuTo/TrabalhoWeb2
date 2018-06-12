@@ -36,7 +36,6 @@ $(document).ready(function(){
 
                     request.onsuccess = function(w){
                         console.log("cadastrado com sucesso");
-                        // $(".main").load("adminScreen.html");
                     }
 
                     request.onerror = function(e){

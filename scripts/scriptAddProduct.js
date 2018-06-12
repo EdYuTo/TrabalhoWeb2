@@ -2,7 +2,13 @@ $(document).ready(function(){
 	$("#subButtonId").click(function(){
 		var name = $("#inputName").val();
 		var quantidade = $("#inputQuant").val();
-		var imagem = $("#inputImage").val();
+		var imagem = $("#caminho").val();
+		var descricao = $("#descricao").val();
+		var value = $.trim(imagem);
+		if(value.length == 0)
+		{
+			imagem = "Imagens/semFoto.jpeg";
+		}
 		var preco = $("#inputPreco").val();
 		var codBarras = $("#inputCodBarras").val();
 
@@ -20,8 +26,9 @@ $(document).ready(function(){
 				var product = {
 					nome: name,
 					quantidade: quantidade,
-					imagem:null,
+					imagem: imagem,
 					preco:preco,
+					descricao:descricao,
 					codigoBarra: codBarras
 				};
 
@@ -30,11 +37,6 @@ $(document).ready(function(){
 				request.onsuccess = function(w){
 					console.log("cadastrado com sucesso");
 					$(".main").load("adminScreen.html");
-				}
-
-				request.onerror = function(e){
-					//console.log(e);
-					//console.log("Não consegui cadastrar!");
 				}
 				db.close();
 			}

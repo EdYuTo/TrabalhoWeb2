@@ -1,6 +1,3 @@
-/**
- * Created by Abe on 23/05/2018.
- */
 $(document).ready(function(){
     $("#subButtonId").click(function(){
         var name = $("#inputName").val();
@@ -10,6 +7,7 @@ $(document).ready(function(){
         var rua = $("#inputStreet").val();
         var bairro = $("#inputBairro").val();
         var numCasa = $("#inputNumber").val();
+        var foto = "Imagens\\unknown.jpg";
 
         if(name.length == 0 || email.length == 0 || telefone.length == 0 || rua.length == 0 || bairro.length == 0 || numCasa.length == 0 || senha.length == 0){
             alert("Preencha todos os campos, por favor!");
@@ -31,7 +29,7 @@ $(document).ready(function(){
                     numCasa: numCasa,
                     numCartao:null,
                     bandeiraCartao:null,
-                    foto: null,
+                    foto: foto,
                     tipoUser: "normal"
                     };
 

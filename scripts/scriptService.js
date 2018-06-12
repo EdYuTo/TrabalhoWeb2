@@ -1,37 +1,28 @@
 $(document).ready(function(){
 
     var db = indexedDB.open("db", 1);
-    var arrayCod = [];
     var arrayImagem = [];
     var arrayNome = [];
     var arrayPreco = [];
-    var arrayQuant = [];
-    var arrayDesc = [];
     var i = 0;
 
     db.onsuccess = function(event) {
         db = event.target.result;
 
-        var objectStore = db.transaction("product").objectStore("product");
+        var objectStore = db.transaction("service").objectStore("service");
 
         objectStore.openCursor().onsuccess = event => {
             let cursor = event.target.result;
             if (cursor) {
-                arrayCod.push(cursor.value.codigoBarra);
                 arrayImagem.push(cursor.value.imagem);
                 arrayNome.push(cursor.value.nome);
                 arrayPreco.push(cursor.value.preco);
-                arrayQuant.push(cursor.value.quantidade);
-                arrayDesc.push(cursor.value.descricao);
                 cursor.continue();
             }
             else {
                 $("#caminho").val(arrayImagem[i]);
-                $(".codProduct").val(arrayCod[i]);
-                $(".nameProduct").val(arrayNome[i]);
-                $(".precoProduct").val(arrayPreco[i]);
-                $(".quantidadeProduct").val(arrayQuant[i]);
-                $(".descricaoProduct").val(arrayDesc[i]);
+                $(".nameService").val(arrayNome[i]);
+                $(".precoService").val(arrayPreco[i]);
 
                 console.log(arrayNome[i]);
             }
@@ -39,51 +30,45 @@ $(document).ready(function(){
         }
     }
 
-    $("#nextButtonEstoque").click(function(){
-        console.log(i+" "+arrayCod[i].length);
+    $("#nextButtonService").click(function(){
+        console.log(i+" "+arrayNome[i].length);
 
-        if(arrayCod[i] != undefined){
+        if(arrayNome[i] != undefined){
             if(i < arrayNome.length - 1 ) {
                 i++;
                 $("#caminho").val(arrayImagem[i]);
-                $(".codProduct").val(arrayCod[i]);
-                $(".nameProduct").val(arrayNome[i]);
-                $(".precoProduct").val(arrayPreco[i]);
-                $(".quantidadeProduct").val(arrayQuant[i]);
-                $(".descricaoProduct").val(arrayDesc[i]);
+                $(".nameService").val(arrayNome[i]);
+                $(".precoService").val(arrayPreco[i]);
             }
         }
     });
 
-    $("#previousButtonEstoque").click(function(){
-        console.log(arrayCod[i]);
+    $("#previousButtonService").click(function(){
+        console.log(arrayNome[i]);
 
-        if(arrayCod[i] != undefined){
+        if(arrayNome[i] != undefined){
             if(i > 0){
                 i = i - 1;
                 $("#caminho").val(arrayImagem[i]);
-                $(".codProduct").val(arrayCod[i]);
-                $(".nameProduct").val(arrayNome[i]);
-                $(".precoProduct").val(arrayPreco[i]);
-                $(".quantidadeProduct").val(arrayQuant[i]);
-                $(".descricaoProduct").val(arrayDesc[i]);
+                $(".nameService").val(arrayNome[i]);
+                $(".precoService").val(arrayPreco[i]);
             }
         }
     });
 
-    $("#deleteButtonEstoque").click(function(){
+    $("#deleteButtonService").click(function(){
         if(i < 0){
             alert("Não há o que deletar!");
-        }else if(arrayCod[i] != undefined){
+        }else if(arrayNome[i] != undefined){
             var db = indexedDB.open("db", 1);
 
             db.onsuccess = function(event){
                 db = event.target.result;
 
-                var transaction = db.transaction(["product"], "readwrite");
-                var store = transaction.objectStore("product");
+                var transaction = db.transaction(["service"], "readwrite");
+                var store = transaction.objectStore("service");
 
-                var request = store.delete(arrayCod[i]);
+                var request = store.delete(arrayNome[i]);
 
                 request.onsuccess = function (e) {
                     alert("Exluido com sucesso");
@@ -93,26 +78,23 @@ $(document).ready(function(){
         }
     });
 
-    $("#saveButtonEstoque").click(function(){
+    $("#saveButtonService").click(function(){
         var db = indexedDB.open("db", 1);
 
         db.onsuccess = function (event) {
             db = event.target.result;
 
-            var store = db.transaction("product", "readwrite").objectStore("product");
-            var request = store.get(arrayCod[i]);
+            var store = db.transaction(["service"], "readwrite").objectStore("service");
+            var request = store.get(arrayNome[i]);
 
             request.onsuccess = function (e) {
                 var result = e.target.result;
                 result.imagem = $("#caminho").val();
-                result.codigoBarra = $(".codProduct").val();
                 result.nome =  $(".nameProduct").val();
                 result.preco = $(".precoProduct").val();
-                result.quantidade =  $(".quantidadeProduct").val();
-                result.descricao =  $(".descricaoProduct").val();
 
                 store.put(result);
-		alert("Produto Salvo!");
+		          alert("Service Salvo!");
             }
             db.close();
         }
